@@ -1,0 +1,38 @@
+<form class="" action="index.php?controller=producto&accion=guardaractializacionproducto" method="post">
+
+  <p>
+    nombre: <input type="text" required name="nombre" value="<?php echo $datos['producto']['nombre'] ?>">
+  </p>
+
+  <p>
+    referencia: <input type="text"  required  name="referencia" value="<?php echo $datos['producto']['referencia'] ?>">
+  </p>
+
+  <p>
+    precio: <input type="number" min="0" required  name="precio" value="<?php echo $datos['producto']['precio'] ?>">
+  </p>
+
+  <p>
+    stock: <input type="number" min="0" required  name="stock" value="<?php echo $datos['producto']['stock'] ?>">
+  </p>
+
+  <p>
+    categoria:
+    <select class=""  required  name="categoria_idcategoria">
+       <?php
+         foreach($datos['categorias'] as $categoria){
+           echo "<option value= '".$categoria['idcategoria']."'".
+                  (($datos['producto']['categoria_idcategoria'] == $categoria['idcategoria'])? "SELECTED": "").
+                " >" .
+                $categoria['nombre']."</option>";
+         }
+        ?>
+    </select>
+  </p>
+
+   <p>
+     <input type="hidden" name="idproducto" value="<?php echo $datos['producto']['idproducto']; ?>">
+     <input type="submit" name="" value="Guardar Cambios">
+   </p>
+
+ </form>

@@ -1,0 +1,35 @@
+<h2>Crear nuevo producto</h2>
+<form class="" action="index.php?controller=producto&accion=guardarnuevoproducto" method="post">
+   <p>
+     nombre: <input type="text"  required  name="nombre" value="">
+   </p>
+
+   <p>
+     referencia: <input type="text"  required  name="referencia" value="">
+   </p>
+
+   <p>
+     precio: <input type="number" min="0" required  name="precio" value="">
+   </p>
+
+   <p>
+     stock: <input type="number" min="0" required  name="stock" value="">
+   </p>
+
+   <p>
+     categoria:
+     <select class="" name="categoria_idcategoria">
+        <?php
+          foreach($datos['categorias'] as $categoria){
+            echo "<option value= '".$categoria['idcategoria']."'>".$categoria['nombre']."</option>";
+          }
+         ?>
+     </select>
+   </p>
+
+   <p>
+
+     <input type="submit" name="" value="Guardar Producto">
+   </p>
+
+ </form>

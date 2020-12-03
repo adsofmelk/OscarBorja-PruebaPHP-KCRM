@@ -1,0 +1,44 @@
+
+    <a href="index.php?controller=producto&accion=crearproducto">[  + Agregar Nuevo Producto ] </a>
+    <a href="index.php?controller=venta&accion=nuevaventa"> [ + Nueva Venta ] </a>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>nombre</th>
+          <th>referencia</th>
+          <th>precio</th>
+          <th>stock</th>
+          <th>fecha creacion</th>
+          <th>fecha ultima venta</th>
+          <th>categoria</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+
+  <?php
+
+    foreach ($datos as $dato) {
+      echo "<tr>";
+
+      echo "<td>" . $dato['idproducto'] . "</td>";
+      echo "<td>" . $dato['nombre'] . "</td>";
+      echo "<td>" . $dato['referencia'] . "</td>";
+      echo "<td>" . $dato['precio'] . "</td>";
+      echo "<td>" . $dato['stock'] . "</td>";
+      echo "<td>" . $dato['fechacreacion'] . "</td>";
+      echo "<td>" . $dato['fechaultimaventa'] . "</td>";
+      echo "<td>" . $dato['nombrecategoria'] . "</td>";
+      echo "<td>
+          [<a href='index.php?controller=producto&accion=actualizarproducto&idproducto=". $dato['idproducto']."' >Actualizar</a>]
+          [ <a href='index.php?controller=producto&accion=borrarproducto&idproducto=". $dato['idproducto']."' > Borrar </a>]
+          [<a href='index.php?controller=producto&accion=verproducto&idproducto=". $dato['idproducto']."' > Ver </a>] </td>";
+
+      echo "</tr>";
+
+    }
+  ?>
+
+      </tbody>
+    </table>

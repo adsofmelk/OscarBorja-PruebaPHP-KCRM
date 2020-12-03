@@ -1,0 +1,35 @@
+<h2>Nueva venta</h2>
+<?php
+
+  if(isset($datos['mensajeerror'])){
+    echo "<p><h3 style='color:red;'>Error</h3>".
+          $datos['mensajeerror'].
+          "</p>";
+  }
+
+ ?>
+<a href="index.php?controller=producto"> <- Regresar </a><br>
+
+<form class="" action="index.php?controller=venta&accion=guardarnuevaventa" method="post">
+
+   <p>
+     Producto:
+     <select class="" name="idproducto">
+        <?php
+          foreach($datos['productos'] as $producto){
+            echo "<option value= '".$producto['idproducto']."'>".$producto['nombre']."</option>";
+          }
+         ?>
+     </select>
+   </p>
+
+   <p>
+     Cantidad:
+     <input type="number" name="cantidadventa"  value="1" min="1" required>
+   </p>
+
+   <p>
+     <input type="submit" name="" value="Guardar Venta">
+   </p>
+
+ </form>
